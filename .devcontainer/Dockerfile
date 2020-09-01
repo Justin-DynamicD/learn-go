@@ -17,12 +17,10 @@ RUN apt-get install -y curl unzip wget git lsb-release software-properties-commo
 RUN wget https://dl.google.com/go/go${GO_VER}.linux-amd64.tar.gz
 RUN tar -xvf go${GO_VER}.linux-amd64.tar.gz
 RUN mv go /usr/local
-RUN export GOROOT=/usr/local/go
-RUN export GOPATH=/workspaces/${GO_PROJECT}
-RUN export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
-RUN echo "export GOROOT=/usr/local/go\n" >> ~/.profile
-RUN echo "export GOPATH=/workspaces/${GO_PROJECT}\n" >> ~/.profile
-RUN echo "export PATH=\$GOPATH/bin:\$GOROOT/bin:\$PATH\n" >> ~/.profile
+
+ENV GOROOT /usr/local/go
+ENV GOPATH /workspaces/${GO_PROJECT}
+ENV PATH \$GOPATH/bin:\$GOROOT/bin:\$PATH
 
 # LABEL and EXPOSE to document runtime settings
 LABEL maintainer="justin.dynamicd@gmail.com"
