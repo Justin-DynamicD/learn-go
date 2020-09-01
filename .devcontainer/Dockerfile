@@ -20,7 +20,7 @@ RUN mv go /usr/local
 
 ENV GOROOT /usr/local/go
 ENV GOPATH /workspaces/${GO_PROJECT}
-ENV PATH \$GOPATH/bin:\$GOROOT/bin:\$PATH
+ENV PATH $GOPATH/bin:$GOROOT/bin:$PATH
 
 # LABEL and EXPOSE to document runtime settings
 LABEL maintainer="justin.dynamicd@gmail.com"
