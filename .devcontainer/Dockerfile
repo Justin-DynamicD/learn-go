@@ -22,8 +22,7 @@ RUN export GOPATH=/workspaces/${GO_PROJECT}
 RUN export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 RUN echo "export GOROOT=/usr/local/go\n" >> ~/.profile
 RUN echo "export GOPATH=/workspaces/${GO_PROJECT}\n" >> ~/.profile
-RUN echo "export PATH=$GOPATH/bin:$GOROOT/bin:$PATH\n" >> ~/.profile
-
+RUN echo "export PATH=\$GOPATH/bin:\$GOROOT/bin:\$PATH\n" >> ~/.profile
 
 # LABEL and EXPOSE to document runtime settings
 LABEL maintainer="justin.dynamicd@gmail.com"
