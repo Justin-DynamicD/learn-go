@@ -16,7 +16,7 @@ RUN apt-get install -y curl unzip wget git lsb-release software-properties-commo
 RUN wget https://dl.google.com/go/go${GO_VER}.linux-amd64.tar.gz
 RUN tar -xvf go${GO_VER}.linux-amd64.tar.gz
 RUN mv go /usr/local
-RUN mkdir /workspace
+RUN mkdir /workspace && mkdir /workspace/src && mkdir /workspace/pkg && mkdir /workspace/bin
 
 ENV GOROOT /usr/local/go
 ENV GOPATH /workspace
